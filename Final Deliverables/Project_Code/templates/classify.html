@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>AI powered nutrition analyzer for fitness enthusiast</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="top-menus">
+	<h1>Nutrition Classification</h1>
+	<a href="home.html"><p>Home</p></a>
+	<a href="about-us.html"><p>About US</p></a>
+	<a href="#"><p>Predict</p></a>
+</div><br>
+<h1>Analyzing page</h1>
+<div id="predict" >
+	<form action="/classify.html" id="upload-file" method="post" enctype="multipart/form-data">
+	<input type="file" name="file" id="file" class="btn1" value="Choose File" accept="image/png, image/jpeg">
+	<input type="image" id="img" class="img" src="/static/images/none.jpg">
+	<input type="submit" id="btn2" class="btn2" value="Predict">
+	</form>
+</div>
+<script>
+const chooseFile = document.getElementById("file");
+const imgPreview = document.getElementById("img");
+file.addEventListener("change", function () {
+  getImgData();
+});
+function getImgData() {
+  const files = chooseFile.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", function () {
+      console.log(imgPreview.src);
+      imgPreview.src =this.result;
+    });
+  }
+}
+</script>
+</body>
+</html>

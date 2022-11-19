@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="top-menus">
+	<h1>Nutrition Classification</h1>
+	<a href="home.html"><p>Home</p></a>
+	<a href="about-us.html"><p>About US</p></a>
+	<a href="classify.html"><p>Predict</p></a>
+</div>
+<center>
+    <h1>The classified fruit is {{x}}</h1>
+    <table>
+        <th>Nutrition</th>
+        <th>value</th>
+    </table>
+    {% for value in result.keys(): %}
+    <table>
+        <tr>
+            <td>{{ value}}  </td>
+            <td>{{result[value]}}</td>
+                {% endfor %}
+        </tr>
+     </table>
+</center>
+</body>
+</html>
